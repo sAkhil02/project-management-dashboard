@@ -1,0 +1,910 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap");
+
+@font-face {
+    font-family: "Cartoonish";
+    src: url("Fonts/Cartoonish.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --paper: #638182;
+    --paper-alt: #87c4bc;
+    --white: #e5f1f1;
+    --ink: #151514;
+    --ink-soft: #55493a;
+
+    --coral: #df888b;
+    --coral-dark: #e0666a;
+    --sun: #ddc484;
+    --grass: #a4dc8a;
+    --grass-dark: #4ea825;
+    --violet: #a092d9;
+    --sky: #89bec4;
+    --pink: #e0aec9;
+
+    --line: 3px;
+    --line-thin: 2px;
+    --radius: 12px;
+    --radius-s: 8px;
+    --shadow: 5px 5px 0 var(--ink);
+    --shadow-s: 2.5px 2.5px 0 var(--ink);
+    --shadow-l: 6px 6px 0 var(--ink);
+
+    --font-display: "Archivo Black", "Cartoonish", Arial, sans-serif;
+    --font-body: "Space Grotesk", "Cartoonish", Arial, sans-serif;
+    --font-mono: "Space Mono", ui-monospace, monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    position: relative;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image: radial-gradient(var(--ink-soft) 1px, transparent 1.2px);
+    background-size: 18px 18px;
+    background-position: -9px -9px;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    letter-spacing: 0.5px;
+    margin: 0 0 8px;
+}
+
+::selection {
+    background: var(--sun);
+    color: var(--ink);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--violet);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+
+/* =========================================================
+   COMMON
+   ========================================================= */
+
+.Welcome {
+    font-family: var(--font-display);
+    color: var(--sky);
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    font-size: xx-large;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 3px 3px 0 #696969;
+}
+
+.Welcome b {
+    color: var(--ink);
+    -webkit-text-stroke: 0;
+}
+
+.Welcome:hover {
+    color: var(--coral);
+}
+
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.Dashboard {
+    position: relative;
+    display: grid;
+
+    width: min(1200px, 90%);
+    min-height: 75vh;
+    height: auto;
+
+    margin: 20px auto;
+    padding: 15px;
+
+    border: var(--line) solid var(--ink);
+    border-radius: var(--radius);
+    gap: 10px;
+    background-color: var(--white);
+    box-shadow: var(--shadow-l);
+}
+
+.DashboardName {
+    font-family: var(--font-display);
+    font-size: xx-large;
+    color: var(--coral);
+    padding: 15px;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.DashboardName:hover {
+    color: var(--violet);
+}
+
+.ProjectManager {
+    display: flex;
+    font-family: var(--font-display);
+    width: min(80%, 900px);
+    justify-content: center;
+    text-transform: uppercase;
+    border-bottom: var(--line) solid var(--ink);
+    padding-bottom: 10px;
+}
+
+.Container {
+    display: flex;
+    gap: 20px;
+    width: 98%;
+    margin: 20px auto;
+}
+
+.Proj_data {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+}
+
+.Adjust_for_proj {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.buttonStyle {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 5px;
+    align-items: stretch;
+    justify-content: start;
+}
+
+.ForCancel{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.button_line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    gap: 16px;
+}
+
+.ShowMeth {
+    display: inline-flex;
+    align-items: center;
+    margin: 2.5px;
+    white-space: nowrap;
+}
+
+.search_create {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 12px;
+}
+
+.SearchBar {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 6px;
+}
+
+.SearchBar input {
+    padding: 6px 10px;
+    border: var(--line-thin) solid var(--ink);
+    border-radius: var(--radius-s);
+}
+
+.SearchBar button {
+    padding: 6px 12px;
+    white-space: nowrap;
+}
+
+/* For Tabs */
+.tabs {
+    display: flex;
+    padding-left: 6.5%;
+    gap: 6px;
+}
+
+.tab,
+.tab_active {
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 10px 25px;
+    border: var(--line-thin) solid var(--ink);
+    background: var(--violet);
+    color: var(--white);
+    margin: 0 0 -0.1px;
+    cursor: pointer;
+    border-top-left-radius: var(--radius-s);
+    border-top-right-radius: var(--radius-s);
+    transform: translate(0px, 1px);
+}
+
+.tab:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: var(--shadow-s);
+}
+
+.tab_active {
+    border-bottom: var(--white);
+    color: var(--ink);
+    font-weight: 700;
+    background: var(--sun);
+}
+
+.ProjectGridItem {
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.Proj_Card {
+    width: 97%;
+    height: fit-content;
+    background: var(--paper-alt);
+    gap: 10px;
+    border: var(--line) solid var(--ink);
+    border-radius: var(--radius);
+    padding: 7px;
+    margin: 0 auto 10px;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================================
+   LOGIN PAGE
+   ========================================================= */
+
+.LoginPage {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: clamp(20px, 4vw, 60px);
+
+    padding: 30px;
+}
+
+
+/* Login box */
+.ForLogin {
+    font-family: var(--font-body);
+    position: relative;
+    width: min(550px, 90vw);
+    min-height: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 30px;
+    margin: 10px;
+    background: var(--white);
+    border: var(--line) solid var(--ink);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-l);
+}
+
+
+/* Login heading */
+
+.LoginName {
+    font-family: var(--font-display);
+    font-size: xx-large;
+    color: var(--coral);
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+
+/* Login image background */
+.BGforPhoto {
+    width: 60vw;
+    height: min(100vh,1200px);
+    background: var(--paper);
+    border-left: var(--line) solid var(--paper);
+}
+
+
+/* Login image */
+.LoginPhoto {
+    width: 70vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.LoginPhoto img {
+    width: 100%;
+    height: 100vh;
+    object-fit: contain;
+    filter: contrast(1.05);
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.InputSpace,
+.InputSpaceU {
+    width: 100%;
+    font-family: var(--font-mono);
+    border: var(--line-thin) solid var(--ink);
+    border-radius: var(--radius-s);
+    padding: 12px;
+    font-size: 15px;
+    outline: none;
+    background: var(--white);
+    transition: all 0.15s;
+}
+
+.InputSpace:hover,
+.InputSpace:focus,
+.InputSpaceU:hover {
+    box-shadow: var(--shadow-s);
+    transform: translate(-2px, -2px);
+}
+
+.InputSpaceU:focus {
+    box-shadow: var(--shadow-s);
+    transform: translate(-2px, -2px);
+}
+
+/* General form inputs */
+input,
+select {
+    font-family: var(--font-mono);
+    padding: 8px 10px;
+    margin: 4px 0;
+
+    border: var(--line-thin) solid var(--ink);
+    border-radius: var(--radius-s);
+
+    background: var(--white);
+
+    min-width: 0;
+    width: 100%;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--ink);
+    box-shadow: var(--shadow-s);
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+   ========================================================= */
+
+.LoginButton {
+    font-family: var(--font-display);
+    width: 100%;
+    padding: 14px;
+    margin-top: 14px;
+    background-color: var(--coral);
+    color: var(--white);
+    border: var(--line) solid var(--ink);
+    border-radius: var(--radius-s);
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: var(--shadow-s);
+    transition: all 0.15s;
+}
+
+.LoginButton:hover {
+    background-color: var(--coral-dark);
+    box-shadow: var(--shadow);
+    transform: translate(-3px, -3px);
+}
+
+.LoginButton:active {
+    box-shadow: none;
+    transform: translate(0, 0);
+}
+
+
+/* =========================================================
+   METHOD BUTTONS
+   ========================================================= */
+
+.Headings {
+    font-family: var(--font-display);
+    color: var(--ink);
+}
+
+.ShowMeth,
+.RemMeth,
+button {
+    font-family: var(--font-body);
+    font-weight: 700;
+}
+
+.ShowMeth {
+    border: var(--line-thin) solid var(--ink);
+    border-radius: var(--radius-s);
+    background-color: var(--grass);
+    color: var(--ink);
+    padding: 10px 14px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: var(--shadow-s);
+    transition: all 0.15s;
+    gap: 10px;
+}
+
+.ShowMeth:hover {
+    background-color: var(--grass);
+    box-shadow: var(--shadow);
+    transform: translate(-3px, -3px);
+}
+
+.ShowMeth:active {
+    box-shadow: none;
+    transform: translate(0, 0);
+}
+
+.RemMeth {
+    border: var(--line-thin) solid var(--ink);
+    border-radius: var(--radius-s);
+    background-color: var(--coral);
+    color: var(--white);
+    padding: 10px 14px;
+    margin-top: 3px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: var(--shadow-s);
+    transition: all 0.15s;
+    gap: 10px;
+}
+
+.RemMeth:hover {
+    background-color: var(--coral-dark);
+    box-shadow: var(--shadow);
+    transform: translate(-3px, -3px);
+}
+
+.RemMeth:active {
+    box-shadow: none;
+    transform: translate(0, 0);
+}
+
+.Cross {
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    border: var(--line-thin) solid var(--ink);
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: var(--coral);
+    color: var(--white);
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: var(--shadow-s);
+    transition: all 0.2s;
+}
+
+.Cross:hover {
+    background-color: var(--coral-dark);
+    box-shadow: var(--shadow);
+    transform: translate(-2px, -2px);
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+._Card {
+    width: 95%;
+    height: fit-content;
+    background: var(--white);
+    gap: 10px;
+    border: var(--line-thin) solid var(--ink);
+    border-radius: var(--radius);
+    padding: 14px;
+    margin: 0 auto 10px;
+
+    box-shadow: var(--shadow);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.ProjectPage {
+    width: 95%;
+    background: var(--paper);
+    justify-self: center;
+    padding: 10px;
+    border: var(--line-thin) solid var(--ink);
+    border-radius: var(--radius);
+}
+
+.Card_Container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.Admin_Container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.Table {
+    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+    border: var(--line-thin) solid var(--ink);
+    border-collapse: collapse;
+    table-layout: fixed;
+    padding: 5px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: minmax(120px, 25%) minmax(0, 75%);
+}
+
+td {
+    border: 1px solid var(--ink);
+    padding: 8px 12px;
+}
+
+tr:nth-child(even) {
+    background: var(--paper);
+}
+
+
+/* =========================================================
+   RESPONSE
+   ========================================================= */
+
+pre {
+    max-width: 100%;
+    font-family: var(--font-mono);
+
+    background: var(--white);
+
+    border: var(--line-thin) solid var(--ink);
+    border-radius: var(--radius-s);
+
+    padding: 12px;
+
+    overflow-x: auto;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.ErrorBox {
+    font-family: var(--font-mono);
+    color: var(--white);
+    width: 80%;
+    background: var(--coral);
+    gap: 10px;
+    border: var(--line-thin) solid var(--ink);
+    border-radius: var(--radius);
+    padding: 10px;
+    margin: 0 auto 10px;
+    box-shadow: var(--shadow-s);
+}
+
+.RespBox {
+    font-family: var(--font-mono);
+    max-width: 80%;
+    color: var(--ink);
+    background: var(--grass);
+    gap: 10px;
+    border: var(--line-thin) solid var(--ink);
+    border-radius: var(--radius);
+    padding: 10px;
+    margin: 0 auto 10px;
+    box-shadow: var(--shadow-s);
+}
+
+.Response {
+    color: var(--violet);
+    font-weight: 700;
+}
+
+.Error {
+    color: var(--coral-dark);
+    font-weight: 700;
+    width: 80%;
+}
+
+
+/* =========================================================
+   OTHER
+   ========================================================= */
+
+label {
+    font-weight: 700;
+    font-family: var(--font-body);
+}
+
+form > div {
+    margin-bottom: 8px;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(24, 23, 23, 0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    position: relative;
+    width: min(560px , 92vw);
+    background: var(--paper-alt);
+    padding: 20px;
+    border: var(--line) solid var(--ink);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-l);
+}
+
+
+/* =========================================================
+   LOGOUT
+   ========================================================= */
+
+.fixed-LogOut {
+    position: absolute;
+    right: 12px;
+    top: 13px;
+    z-index: 1000;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px ;
+    padding: 8px 12px;
+    border: var(--line-thin) solid var(--ink);
+    border-radius: var(--radius-s);
+    background: #2b2b2b;
+    color: var(--paper);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    box-shadow: var(--shadow-s);
+    transition: all 0.15s;
+}
+
+.fixed-LogOut:hover {
+    background: var(--coral);
+    color: var(--white);
+    box-shadow: var(--shadow);
+    transform: translate(-2px, -2px);
+}
+
+.LogOut svg {
+    width: 20px;
+    height: 20px;
+}
+
+.LogOutName{
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .LoginPage {
+        padding: 20px;
+    }
+    .ForLogin {
+        width: min(500px, 90vw);
+        margin: 20px auto;
+    }
+    .LoginPhoto,
+    .BGforPhoto {
+        display: none;
+    }
+    .Dashboard {
+        width: 95%;
+    }
+    .Card_Container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .button_line {
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+    .search_create {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .search_create .InputSpace {
+        flex: 1 1 160px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .LoginPage {
+        min-height: 100svh;
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ForLogin {
+        width: 100%;
+        max-width: 450px;
+        min-height: 0;
+        height: auto;
+        margin: 10px auto;
+        padding: 20px;
+    }
+
+    .Dashboard {
+        width: 100%;
+        min-height: 0;
+        margin: 10px 0;
+        padding: 15px;
+    }
+
+    .Welcome {
+        font-size: 24px;
+    }
+
+    .DashboardName,
+    .LoginName {
+        font-size: x-large;
+    }
+
+    ._Card {
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    .row {
+        grid-template-columns: 40% 60%;
+    }
+
+    .fixed-LogOut {
+        right: 10px;
+        top: 10px;
+    }
+
+    .Card_Container {
+        grid-template-columns: 1fr;
+    }
+
+    .overlay-content {
+        width: fit-content;
+    }
+
+    .Admin_Container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .LoginPage {
+        padding: 10px;
+    }
+
+    .ForLogin {
+        padding: 15px;
+    }
+
+    .row {
+        grid-template-columns: 45% 55%;
+    }
+
+    .Welcome {
+        font-size: 21px;
+    }
+
+    .DashboardName,
+    .LoginName {
+        font-size: large;
+    }
+
+    .overlay-content {
+        width: fit-content;
+    }
+
+    .Admin_Container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .search_create {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .search_create .InputSpace,
+    .search_create .InputSpaceU,
+    .search_create .ShowMeth {
+        width: 100%;
+    }
+}
+
+.control_section {
+    justify-self: left;
+}
