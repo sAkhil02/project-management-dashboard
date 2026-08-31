@@ -28,24 +28,28 @@ A full-stack admin dashboard for managing projects and their associated methods,
 ```
 .
 ├── frontend/          # React + TypeScript client (Vite)
-│   ├── src/
-│   │   ├── Web/App.tsx
-│   │   ├── Pages/
-│   │   │   ├── Login/
-│   │   │   └── Dashboard/
-│   │   │       ├── ProjectManager/
-│   │   │       └── AdminManager/
-│   │   ├── Component/
-│   │   ├── Service/Api.ts
-│   │   └── Style/
-│   └── package.json
+│   │── App.tsx
+│   ├── meta.env
+│   ├── Pages/
+│   │   ├── Login/
+│   │   └── Dashboard/
+│   │       ├── ProjectManager/
+│   │       └── AdminManager/
+│   ├── Component/
+│   ├── Service/Api.ts
+│   └── Style/
+│           ├── Fonts/
+│           └── Photos/
+│   
 │
 └── backend/           # FastAPI server
-    ├── endpoints.py
+    ├── Endpoints/
     ├── Schemas/
     ├── Services/
     ├── Models/
     ├── Database/
+    ├── payload.txt
+    ├── password.env
     └── requirements.txt
 ```
 
