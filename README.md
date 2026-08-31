@@ -2,8 +2,6 @@
 
 A full-stack admin dashboard for managing projects and their associated methods, with admin login, search/filter, and CRUD operations — built as a learning project pairing a React + TypeScript frontend with a FastAPI backend.
 
-> ✏️ Replace this title/description with whatever name you'd like to give the project — this is just a starting point based on the code.
-
 ## Features
 
 - 🔐 Admin login (via email or phone number + password)
@@ -50,8 +48,6 @@ A full-stack admin dashboard for managing projects and their associated methods,
     ├── Database/
     └── requirements.txt
 ```
-
-> ✏️ Adjust this tree to match your actual folder names/layout once everything is pushed.
 
 ## Getting Started
 
